@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Leont\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Leon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Leont\\Documents\\PNT1\\PNT1\\PNT1.csproj",
+      "projectUniqueName": "C:\\Users\\Leon\\Downloads\\PNT1\\PNT1.csproj",
       "projectName": "PNT1",
-      "projectPath": "C:\\Users\\Leont\\Documents\\PNT1\\PNT1\\PNT1.csproj",
-      "packagesPath": "C:\\Users\\Leont\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Leont\\Documents\\PNT1\\PNT1\\obj\\",
+      "projectPath": "C:\\Users\\Leon\\Downloads\\PNT1\\PNT1.csproj",
+      "packagesPath": "C:\\Users\\Leon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leon\\Downloads\\PNT1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Leont\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Leon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
