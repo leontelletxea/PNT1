@@ -10,7 +10,7 @@ namespace PNT1
     {
         // Propiedades autoimplementadas
         public int numero { get; set; }
-        public enumSala descripcion { get; set; }
+        public enumSala tipo { get; set; }
 
 
         // Constructor parametrizado
@@ -23,7 +23,7 @@ namespace PNT1
         // Override del método ToString para mostrar el número de sala
         public override string ToString()
         {
-            return $"Sala número: {numero}\nTipo: {descripcion}";
+            return $"Sala número: {this.numero}\nTipo: {this.descripcion}";
         }
     }
 }

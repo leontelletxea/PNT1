@@ -9,14 +9,16 @@ namespace PNT1
     public class Carrito
     {
         // Propiedades autoimplementadas
+        public int id { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string correoElectronico { get; set;}
         public List<Entrada> carrito { get; set; }
 
         // Constructor parametrizado
-        public Carrito(string nombre, string apellido, string correoElectronico)
+        public Carrito(int id, string nombre, string apellido, string correoElectronico)
         {
+            this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;    
             this.correoElectronico = correoElectronico;
@@ -24,8 +26,9 @@ namespace PNT1
         }
 
         // Constructor sobrecargado incluyendo el carrito
-        public Carrito(string nombre, string apellido, string correoElectronico, List<Entrada> carrito)
+        public Carrito(int id, string nombre, string apellido, string correoElectronico, List<Entrada> carrito)
         {
+            this.id = id;
             this.nombre = nombre;
             this.apellido = apellido;
             this.correoElectronico = correoElectronico;
@@ -35,7 +38,7 @@ namespace PNT1
         // Override del método ToString para mostrar el carrito (llamado explicito al ToString de Entrada)
         public override string ToString()
         {
-            var ret = $"Carrito de: {nombre} {apellido}\nCorreo Electronico: {correoElectronico}\n";
+            var ret = $"Carrito de: {this.nombre} {this.apellido}\nCorreo Electronico: {this.correoElectronico}\n";
 
             foreach (var item in carrito)
             {

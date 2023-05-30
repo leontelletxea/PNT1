@@ -24,7 +24,7 @@ namespace PNT1
         // Override del método ToString para mostrar el número de sala
         public override string ToString()
         {
-            return $"Titulo: {titulo}\nGenero: {genero}";
+            return $"Titulo: {this.titulo}\nGenero: {this.genero}";
         }
     }
 }
