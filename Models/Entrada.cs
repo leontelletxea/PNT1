@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace MVC_basico.Models
@@ -7,7 +8,8 @@ namespace MVC_basico.Models
     {
         // Propiedades autoimplementadas
         [Key]
-        public int id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
         public Pelicula pelicula { get; set; }
 
@@ -19,21 +21,21 @@ namespace MVC_basico.Models
         [Display(Name = "Butaca")]
         public int butaca { get; set; }
 
-        // Constructor parametrizado
-        //public Entrada(int id, Pelicula pelicula, Sala sala, int fila, int butaca)
-        //{
-        //    this.id = id;
-        //    this.pelicula = pelicula;
-        //    this.sala = sala;
-        //    this.fila = fila;
-        //    this.butaca = butaca;
-        //}
+        //Constructor parametrizado
+        public Entrada(int id, Pelicula pelicula, Sala sala, int fila, int butaca)
+        {
+            this.Id = id;
+            this.pelicula = pelicula;
+            this.sala = sala;
+            this.fila = fila;
+            this.butaca = butaca;
+        }
 
-        //// Override del método ToString para mostrar los datos de la entrada (llamados implicitos a ToString de Pelicula y Sala)
-        //public override string ToString()
-        //{
-        //    return $"Entrada para: {this.pelicula}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}";
-        //}
+        // Override del método ToString para mostrar los datos de la entrada (llamados implicitos a ToString de Pelicula y Sala)
+        public override string ToString()
+        {
+            return $"Entrada para: {this.pelicula}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}";
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
 namespace MVC_basico.Models
@@ -7,7 +8,8 @@ namespace MVC_basico.Models
     {
         // Propiedades autoimplementadas
         [Key]
-        public int id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
         [Required]
         public string titulo { get; set; }
@@ -18,7 +20,7 @@ namespace MVC_basico.Models
         // Constructor parametrizado
         public Pelicula(int id, string titulo, enumGenero genero)
         {
-            this.id = id;
+            this.Id = id;
             this.titulo = titulo;
             this.genero = genero;
         }
