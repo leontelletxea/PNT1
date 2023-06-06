@@ -16,6 +16,7 @@ namespace MVC_basico.Models
         [Display(Name = "Tipo Sala")]
         public enumSala tipo { get; set; }
 
+        public Sala() { }
 
         // Constructor parametrizado
         public Sala(int numero, enumSala tipo)

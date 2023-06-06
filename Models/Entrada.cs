@@ -21,6 +21,8 @@ namespace MVC_basico.Models
         [Display(Name = "Butaca")]
         public int butaca { get; set; }
 
+        public Entrada() { }
+
         //Constructor parametrizado
         public Entrada(int id, Pelicula pelicula, Sala sala, int fila, int butaca)
         {

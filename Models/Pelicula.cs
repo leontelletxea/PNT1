@@ -17,6 +17,8 @@ namespace MVC_basico.Models
         [Display(Name = "Género")]
         public enumGenero genero { get; set; }
 
+        public Pelicula() { }
+
         // Constructor parametrizado
         public Pelicula(int id, string titulo, enumGenero genero)
         {

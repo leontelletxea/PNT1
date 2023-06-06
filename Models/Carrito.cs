@@ -22,6 +22,8 @@ namespace MVC_basico.Models
 
         public List<Entrada> carrito { get; set; }
 
+        public Carrito() { }
+
         // Constructor parametrizado
         public Carrito(int id, string nombre, string apellido, string correoElectronico)
         {

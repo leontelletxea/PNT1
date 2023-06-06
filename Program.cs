@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //referencia al contexto de la base de datos
 builder.Services.AddDbContext<CineDatabaseContext>(
-                      options => options.UseSqlServer(builder.Configuration["ConnectionString:EntradaDBConnection"]));
+                      options => options.UseSqlServer(builder.Configuration["ConnectionString:CineDBConnection"]));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
