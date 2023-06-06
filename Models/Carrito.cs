@@ -11,13 +11,16 @@ namespace MVC_basico.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
         [Required]
+        [Display(Name = "Apellido")]
         public string apellido { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Correo Electronico")]
         public string correoElectronico { get; set; }
 
         public List<Entrada> carrito { get; set; }

@@ -11,8 +11,10 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Display(Name = "Pelicula")]
         public Pelicula pelicula { get; set; }
 
+        [Display(Name = "Sala")]
         public Sala sala { get; set; }
 
         [Display(Name = "Fila")]

@@ -12,6 +12,7 @@ namespace MVC_basico.Models
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Título")]
         public string titulo { get; set; }
 
         [Display(Name = "Género")]
