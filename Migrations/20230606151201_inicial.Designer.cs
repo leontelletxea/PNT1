@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_basico.Migrations
 {
     [DbContext(typeof(CineDatabaseContext))]
-    [Migration("20230606145646_Inicial")]
-    partial class Inicial
+    [Migration("20230606151201_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
