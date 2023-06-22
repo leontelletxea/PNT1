@@ -10,16 +10,16 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Apellido")]
         public string apellido { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [EmailAddress(ErrorMessage = "El campo debe contener un formato email valido")]
         [Display(Name = "Correo Electronico")]
         public string correoElectronico { get; set; }
 

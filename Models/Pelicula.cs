@@ -11,10 +11,11 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Título")]
         public string titulo { get; set; }
 
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Género")]
         public enumGenero genero { get; set; }
 

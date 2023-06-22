@@ -11,15 +11,21 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Pelicula")]
         public Pelicula pelicula { get; set; }
 
+        [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Sala")]
         public Sala sala { get; set; }
 
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Range(1, 100, ErrorMessage = "El valor debe estar entre 1 y 100.")]
         [Display(Name = "Fila")]
         public int fila { get; set; }
 
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Range(1, 100, ErrorMessage = "El valor debe estar entre 1 y 100.")]
         [Display(Name = "Butaca")]
         public int butaca { get; set; }
 
