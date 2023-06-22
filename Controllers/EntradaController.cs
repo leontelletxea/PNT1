@@ -56,7 +56,7 @@ namespace MVC_basico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,fila,butaca")] Entrada entrada)
+        public async Task<IActionResult> Create([Bind("Id,fila,butaca,fecha")] Entrada entrada)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace MVC_basico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,fila,butaca")] Entrada entrada)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,fila,butaca,fecha")] Entrada entrada)
         {
             if (id != entrada.Id)
             {

@@ -13,6 +13,7 @@ namespace MVC_basico.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Range(1, 100, ErrorMessage = "El valor debe estar entre 1 y 100.")]
         [Display(Name = "Numero Sala")]
         public int numero { get; set; }
 

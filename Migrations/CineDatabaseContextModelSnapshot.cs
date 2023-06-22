@@ -61,6 +61,9 @@ namespace MVC_basico.Migrations
                     b.Property<int>("butaca")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("fecha")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("fila")
                         .HasColumnType("int");
 
