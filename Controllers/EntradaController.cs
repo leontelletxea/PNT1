@@ -48,6 +48,7 @@ namespace MVC_basico.Controllers
         // GET: Entrada/Create
         public IActionResult Create()
         {
+            ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace MVC_basico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,fila,butaca,fecha")] Entrada entrada)
+        public async Task<IActionResult> Create([Bind("Id,pelicula,sala,fila,butaca,fecha")] Entrada entrada)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +65,7 @@ namespace MVC_basico.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
             return View(entrada);
         }
 
@@ -88,7 +90,7 @@ namespace MVC_basico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,fila,butaca,fecha")] Entrada entrada)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,peliculaId,sala,fila,butaca,fecha")] Entrada entrada)
         {
             if (id != entrada.Id)
             {

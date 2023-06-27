@@ -12,14 +12,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_basico.Migrations
 {
     [DbContext(typeof(CineDatabaseContext))]
-    [Migration("20230622160144_actualizacion")]
-    partial class actualizacion
+    [Migration("20230627011705_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.16")
+                .HasAnnotation("ProductVersion", "6.0.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -69,19 +69,19 @@ namespace MVC_basico.Migrations
                     b.Property<int>("fila")
                         .HasColumnType("int");
 
+                    b.Property<string>("pelicula")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("peliculaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("salaId")
+                    b.Property<int>("sala")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CarritoId");
-
-                    b.HasIndex("peliculaId");
-
-                    b.HasIndex("salaId");
 
                     b.ToTable("Entradas");
                 });
@@ -106,46 +106,11 @@ namespace MVC_basico.Migrations
                     b.ToTable("Peliculas");
                 });
 
-            modelBuilder.Entity("MVC_basico.Models.Sala", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("numero")
-                        .HasColumnType("int");
-
-                    b.Property<int>("tipo")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Salas");
-                });
-
             modelBuilder.Entity("MVC_basico.Models.Entrada", b =>
                 {
                     b.HasOne("MVC_basico.Models.Carrito", null)
                         .WithMany("carrito")
                         .HasForeignKey("CarritoId");
-
-                    b.HasOne("MVC_basico.Models.Pelicula", "pelicula")
-                        .WithMany()
-                        .HasForeignKey("peliculaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MVC_basico.Models.Sala", "sala")
-                        .WithMany()
-                        .HasForeignKey("salaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("pelicula");
-
-                    b.Navigation("sala");
                 });
 
             modelBuilder.Entity("MVC_basico.Models.Carrito", b =>

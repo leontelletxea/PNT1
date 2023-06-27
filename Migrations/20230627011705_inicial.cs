@@ -39,27 +39,14 @@ namespace MVC_basico.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Salas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    numero = table.Column<int>(type: "int", nullable: false),
-                    tipo = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Salas", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Entradas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     peliculaId = table.Column<int>(type: "int", nullable: false),
-                    salaId = table.Column<int>(type: "int", nullable: false),
+                    pelicula = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sala = table.Column<int>(type: "int", nullable: false),
                     fila = table.Column<int>(type: "int", nullable: false),
                     butaca = table.Column<int>(type: "int", nullable: false),
                     fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -73,34 +60,12 @@ namespace MVC_basico.Migrations
                         column: x => x.CarritoId,
                         principalTable: "Carritos",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Entradas_Peliculas_peliculaId",
-                        column: x => x.peliculaId,
-                        principalTable: "Peliculas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Entradas_Salas_salaId",
-                        column: x => x.salaId,
-                        principalTable: "Salas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entradas_CarritoId",
                 table: "Entradas",
                 column: "CarritoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Entradas_peliculaId",
-                table: "Entradas",
-                column: "peliculaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Entradas_salaId",
-                table: "Entradas",
-                column: "salaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -109,13 +74,10 @@ namespace MVC_basico.Migrations
                 name: "Entradas");
 
             migrationBuilder.DropTable(
-                name: "Carritos");
-
-            migrationBuilder.DropTable(
                 name: "Peliculas");
 
             migrationBuilder.DropTable(
-                name: "Salas");
+                name: "Carritos");
         }
     }
 }

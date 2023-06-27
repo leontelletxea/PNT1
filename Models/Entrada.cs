@@ -12,9 +12,15 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public Pelicula pelicula { get; set; }
+        public virtual int peliculaId { get; set; }
 
-        public Sala sala { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Display(Name = "Pelicula")]
+        public string pelicula { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Display(Name = "Sala")]
+        public enumSala sala { get; set; }
 
         [Required(ErrorMessage = "El campo es obligatorio.")]
         [Range(1, 100, ErrorMessage = "El valor debe estar entre 1 y 100.")]
@@ -31,13 +37,15 @@ namespace MVC_basico.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime fecha { get; set; }
 
+        //agregar apellido nombre y mail 1 persona 1 entrada
+
         public Entrada() { }
 
         //Constructor parametrizado
-        public Entrada(int id, Pelicula pelicula, Sala sala, int fila, int butaca)
+        public Entrada(int id, int peliculaId, enumSala sala, int fila, int butaca)
         {
             this.Id = id;
-            this.pelicula = pelicula;
+            this.peliculaId = peliculaId;
             this.sala = sala;
             this.fila = fila;
             this.butaca = butaca;
@@ -46,7 +54,7 @@ namespace MVC_basico.Models
         // Override del método ToString para mostrar los datos de la entrada (llamados implicitos a ToString de Pelicula y Sala)
         public override string ToString()
         {
-            return $"Entrada para: {this.pelicula}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}, \nFecha:{this.fecha}";
+            return $"Entrada para: {this.peliculaId}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}, \nFecha:{this.fecha}";
         }
     }
 
