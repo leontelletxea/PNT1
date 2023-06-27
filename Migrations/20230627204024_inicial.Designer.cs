@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_basico.Migrations
 {
     [DbContext(typeof(CineDatabaseContext))]
-    [Migration("20230627011705_inicial")]
+    [Migration("20230627204024_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,31 +24,6 @@ namespace MVC_basico.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MVC_basico.Models.Carrito", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("apellido")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("correoElectronico")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Carritos");
-                });
-
             modelBuilder.Entity("MVC_basico.Models.Entrada", b =>
                 {
                     b.Property<int>("Id")
@@ -57,11 +32,12 @@ namespace MVC_basico.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CarritoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("butaca")
                         .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("fecha")
                         .HasColumnType("datetime2");
@@ -73,15 +49,14 @@ namespace MVC_basico.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("peliculaId")
-                        .HasColumnType("int");
-
                     b.Property<int>("sala")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("usuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("CarritoId");
+                    b.HasKey("Id");
 
                     b.ToTable("Entradas");
                 });
@@ -104,18 +79,6 @@ namespace MVC_basico.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Peliculas");
-                });
-
-            modelBuilder.Entity("MVC_basico.Models.Entrada", b =>
-                {
-                    b.HasOne("MVC_basico.Models.Carrito", null)
-                        .WithMany("carrito")
-                        .HasForeignKey("CarritoId");
-                });
-
-            modelBuilder.Entity("MVC_basico.Models.Carrito", b =>
-                {
-                    b.Navigation("carrito");
                 });
 #pragma warning restore 612, 618
         }

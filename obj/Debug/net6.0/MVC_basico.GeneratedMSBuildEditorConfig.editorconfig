@@ -16,26 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Leon\Downloads\PNT1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Leon/Downloads/PNT1/Views/Carrito/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Leon/Downloads/PNT1/Views/Carrito/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Leon/Downloads/PNT1/Views/Carrito/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Leon/Downloads/PNT1/Views/Carrito/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Leon/Downloads/PNT1/Views/Carrito/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fycml0b1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Leon/Downloads/PNT1/Views/Entrada/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cmFkYVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

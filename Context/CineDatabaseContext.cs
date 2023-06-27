@@ -16,6 +16,5 @@ namespace MVC_basico.Context
         //controlador de sala funcionando
         public DbSet<Pelicula> Peliculas { get; set; }
         public DbSet<Entrada> Entradas { get; set; }
-        public DbSet<Carrito> Carritos { get; set; }
     }
 }

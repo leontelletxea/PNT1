@@ -12,7 +12,14 @@ namespace MVC_basico.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public virtual int peliculaId { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [Display(Name = "Usuario")]
+        public string usuario { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio.")]
+        [EmailAddress(ErrorMessage = "El formato del correo electrónico no es válido.")]
+        [Display(Name = "Email")]
+        public string email { get; set; }
 
         [Required(ErrorMessage = "El campo es obligatorio.")]
         [Display(Name = "Pelicula")]
@@ -43,10 +50,10 @@ namespace MVC_basico.Models
         public Entrada() { }
 
         //Constructor parametrizado
-        public Entrada(int id, int peliculaId, enumSala sala, int fila, int butaca)
+        public Entrada(int id, string pelicula, enumSala sala, int fila, int butaca)
         {
             this.Id = id;
-            this.peliculaId = peliculaId;
+            this.pelicula = pelicula;
             this.sala = sala;
             this.fila = fila;
             this.butaca = butaca;
@@ -55,7 +62,7 @@ namespace MVC_basico.Models
         // Override del método ToString para mostrar los datos de la entrada (llamados implicitos a ToString de Pelicula y Sala)
         public override string ToString()
         {
-            return $"Entrada para: {this.peliculaId}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}, \nFecha:{this.fecha}";
+            return $"Entrada para: {this.pelicula}\nSala: {this.sala}\nFila: {this.fila}\nButaca:{this.butaca}, \nFecha:{this.fecha}";
         }
     }
 
