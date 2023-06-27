@@ -59,12 +59,38 @@ namespace MVC_basico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,usuario,email,pelicula,sala,fila,butaca,fecha")] Entrada entrada)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(entrada);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
+            //return View(entrada);
+
             if (ModelState.IsValid)
             {
+                // Verificar si la entrada ya existe en la base de datos
+                bool entradaExistente = await _context.Entradas.AnyAsync(e =>
+                    e.pelicula == entrada.pelicula &&
+                    e.sala == entrada.sala &&
+                    e.fila == entrada.fila &&
+                    e.butaca == entrada.butaca &&
+                    e.fecha == entrada.fecha);
+
+                if (entradaExistente)
+                {
+                    ModelState.AddModelError("", "La entrada ya está reservada.");
+                    ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
+                    return View(entrada);
+                }
+
+                // Si no existe, guardar la entrada en la base de datos
                 _context.Add(entrada);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
             return View(entrada);
         }
