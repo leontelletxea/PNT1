@@ -126,8 +126,24 @@ namespace MVC_basico.Controllers
 
             if (ModelState.IsValid)
             {
+                // Verificar si la entrada ya existe en la base de datos
+                bool entradaExistente = await _context.Entradas.AnyAsync(e =>
+                    e.pelicula == entrada.pelicula &&
+                    e.sala == entrada.sala &&
+                    e.fila == entrada.fila &&
+                    e.butaca == entrada.butaca &&
+                    e.fecha == entrada.fecha);
+
+                if (entradaExistente)
+                {
+                    ModelState.AddModelError("", "La entrada ya está reservada.");
+                    ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
+                    return View(entrada);
+                }
+
                 try
                 {
+                    // Si no existe, actualizar la entrada en la base de datos
                     _context.Update(entrada);
                     await _context.SaveChangesAsync();
                 }
@@ -142,8 +158,10 @@ namespace MVC_basico.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(entrada);
         }
 
