@@ -1,0 +1,10 @@
+Orden de tareas a realizar GRUPO 5
+-------------------------------------------
+	1) subir uml a github.
+	2) combo de entrada al crearla no vuelve el IdPelicula, ver en proyecto vinos, controller pedido
+	analogía el producto de ese proyecto es la película. Métodos Create GET/POST y ver la view Create de la 	
+	carpeta Entrada.
+	3) sugerencia simplificar modelo luego de que funcione punto 2), que cada entrada
+	ya tengo la persona que compra, con apellido, nombre y mail.
+	4) validar en controlador de entrada, que la misma persona no pueda comprar la misma entrada para la misma fecha y ubicación.
+	5) estética del sitio (css, etc).
