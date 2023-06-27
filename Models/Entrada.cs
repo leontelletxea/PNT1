@@ -35,6 +35,7 @@ namespace MVC_basico.Models
         [Required(ErrorMessage = "El campo es obligatorio.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha")]
         public DateTime fecha { get; set; }
 
         //agregar apellido nombre y mail 1 persona 1 entrada

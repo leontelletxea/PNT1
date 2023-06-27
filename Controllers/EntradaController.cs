@@ -82,6 +82,7 @@ namespace MVC_basico.Controllers
             {
                 return NotFound();
             }
+            ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
             return View(entrada);
         }
 
@@ -90,7 +91,7 @@ namespace MVC_basico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,peliculaId,sala,fila,butaca,fecha")] Entrada entrada)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,pelicula,sala,fila,butaca,fecha")] Entrada entrada)
         {
             if (id != entrada.Id)
             {

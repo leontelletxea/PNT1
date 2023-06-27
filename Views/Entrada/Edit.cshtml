@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Reservas</h1>
 
-<h4>Entrada</h4>
+<h4>Modificar Reserva</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,13 +14,18 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="peliculaId" class="control-label"></label>
-                <input asp-for="peliculaId" class="form-control" />
-                <span asp-validation-for="peliculaId" class="text-danger"></span>
+                <label asp-for="pelicula" class="control-label"></label>
+                <select asp-for="pelicula" class="form-control" asp-items="ViewBag.Peliculas"></select>
             </div>
             <div class="form-group">
                 <label asp-for="sala" class="control-label"></label>
-                <select asp-for="sala" class="form-control"></select>
+                <select asp-for="sala" class="form-control">
+                    <option disabled selected>Seleccione un valor</option>
+                    @foreach (var value in Enum.GetValues(typeof(enumSala)))
+                    {
+                        <option value="@value">@value</option>
+                    }
+                </select>
                 <span asp-validation-for="sala" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,14 +44,14 @@
                 <span asp-validation-for="fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Modificar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Ir a Reservas</a>
 </div>
 
 @section Scripts {
