@@ -59,15 +59,6 @@ namespace MVC_basico.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,usuario,email,pelicula,sala,fila,butaca,fecha")] Entrada entrada)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(entrada);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //ViewData["Peliculas"] = new SelectList(_context.Peliculas, "titulo", "titulo", entrada.pelicula);
-            //return View(entrada);
-
             if (ModelState.IsValid)
             {
                 // Verificar si la entrada ya existe en la base de datos

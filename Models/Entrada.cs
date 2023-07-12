@@ -45,8 +45,6 @@ namespace MVC_basico.Models
         [Display(Name = "Fecha")]
         public DateTime fecha { get; set; }
 
-        //agregar apellido nombre y mail 1 persona 1 entrada
-
         public Entrada() { }
 
         //Constructor parametrizado
